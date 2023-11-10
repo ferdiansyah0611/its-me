@@ -1,8 +1,163 @@
+import style from "@styles/routes/Home.module.sass";
+import Navigation from "@/components/partial/Navigation";
+import useApp, { projectInterface } from "@/stores/useApp";
+import {
+	Button,
+	Card,
+	CardBody,
+	CardFooter,
+	Carousel,
+	Timeline,
+	TimelineBody,
+	TimelineConnector,
+	TimelineHeader,
+	TimelineIcon,
+	TimelineItem,
+	Typography,
+} from "@material-tailwind/react";
+import Footer from "@/components/partial/Footer";
+import { useEffect, useState } from "react";
+import ProjectItem from "@/components/project/ProjectItem";
+import icon from "@/constant/icon";
 
 export default function Home() {
-	return(
-		<>
-			<p>Home</p>
-		</>
-	)
+	const app = useApp();
+	const [project, setProject] = useState<projectInterface[][]>([]);
+	useEffect(() => {
+		setProject(chunkArray(app.projects, 2));
+	}, [app.projects])
+	return (
+		<main>
+			<Navigation />
+			<section className={"app_container " + style.one_section} style={{ minHeight: "85vh" }}>
+				<div className="flex-1">
+					<Typography variant="h2">{app.profiles.name}</Typography>
+					<Typography variant="h6">{app.profiles.role}</Typography>
+					<Typography variant="paragraph" className="mb-4">
+						Focus, Inspiration, Imagination & Problem Solving
+					</Typography>
+					<Button>Contact Me</Button>
+				</div>
+				<div className="flex-1">
+					<img
+						src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGdpcmwlMjBvZmZpY2V8ZW58MHx8MHx8fDA%3D"
+						alt="photo"
+						className={style.main_img}
+					/>
+				</div>
+			</section>
+			<div className="bg-gray-100 p-2">
+				<section className="app_container flex justify-center items-center min-h-screen">
+					<div>
+						<Card className="max-w-md">
+							<CardBody className="text-center">
+								<Typography className="mb-2" variant="h3">About</Typography>
+								<Typography variant="paragraph">{app.profiles.description}</Typography>
+							</CardBody>
+							<CardFooter className="flex justify-center gap-2">
+								<Button size="sm" onClick={() => window.open(app.profiles.contacts.email)} className="flex items-center" variant="outlined">
+									<img src={icon["gmail"]} width={32} height={32} alt="icon"/>
+								</Button>
+								<Button size="sm" onClick={() => window.open(app.profiles.contacts.instagram)} className="flex items-center" variant="outlined">
+									<img src={icon["instagram"]} width={32} height={32} alt="icon"/>
+								</Button>
+								<Button size="sm" onClick={() => window.open(app.profiles.contacts.facebook)} className="flex items-center" variant="outlined">
+									<img src={icon["facebook"]} width={32} height={32} alt="icon"/>
+								</Button>
+								<Button size="sm" onClick={() => window.open(app.profiles.contacts.whatsapp)} className="flex items-center" variant="outlined">
+									<img src={icon["whatsapp"]} width={32} height={32} alt="icon"/>
+								</Button>
+							</CardFooter>
+						</Card>
+					</div>
+				</section>
+			</div>
+			<section className="app_container p-2 py-5">
+				<div className="flex justify-center gap-2 md:gap-10 flex-wrap">
+					<Card className="flex-1 shadow-none border border-gray-300">
+						<CardBody>
+							<Typography className="mb-2" variant="h3">Study</Typography>
+							<Timeline>
+								{app.study.map((item) => (
+									<TimelineItem>
+										<TimelineConnector />
+										<TimelineHeader>
+											<TimelineIcon className="p-2">
+												<span className="material-symbols-outlined text-sm">adjust</span>
+											</TimelineIcon>
+											<Typography variant="h6" color="blue-gray">
+												{item.name}
+											</Typography>
+										</TimelineHeader>
+										<TimelineBody className="pb-8">
+											<Typography color="gray" className="font-normal text-gray-600">
+												{item.year}
+											</Typography>
+										</TimelineBody>
+									</TimelineItem>
+								))}
+							</Timeline>
+						</CardBody>
+					</Card>
+					<Card className="flex-1 shadow-none border border-gray-300">
+						<CardBody>
+							<Typography className="mb-2" variant="h3">Experience</Typography>
+							<Timeline>
+								{app.experience.map((item) => (
+									<TimelineItem>
+										<TimelineConnector />
+										<TimelineHeader>
+											<TimelineIcon className="p-2">
+												<span className="material-symbols-outlined text-sm">adjust</span>
+											</TimelineIcon>
+											<Typography variant="h6" color="blue-gray">
+												{item.company}
+											</Typography>
+										</TimelineHeader>
+										<TimelineBody className="pb-8">
+											<Typography color="gray" className="font-normal text-gray-600">
+												{item.role}, {item.during}
+											</Typography>
+											{item.task.map((task) => (
+												<Typography variant="small" className="mt-4">- {task}</Typography>
+											))}
+										</TimelineBody>
+									</TimelineItem>
+								))}
+							</Timeline>
+						</CardBody>
+					</Card>
+				</div>
+			</section>
+			<section className="p-5">
+				<div className="app_container">
+					<Typography variant="h3" className="mb-4">Projects</Typography>
+				</div>
+				<Carousel className={[style.carousel, "carousel"].join(" ")}>
+					{project.map((item, key) => (
+						<div key={key} className="app_container pb-10">
+							<div className="flex flex-col md:flex-row gap-4 justify-center">
+								{item.map((projectRow) => (
+									<ProjectItem key={projectRow.title} data={projectRow} />
+								))}
+							</div>
+						</div>
+					))}
+				</Carousel>
+			</section>
+			<Footer/>
+		</main>
+	);
+}
+
+function chunkArray(arr: any[], size: number): any[] {
+  const chunkedArray = [];
+  let index = 0;
+
+  while (index < arr.length) {
+    chunkedArray.push(arr.slice(index, index + size));
+    index += size;
+  }
+
+  return chunkedArray;
 }

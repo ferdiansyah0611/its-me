@@ -24,7 +24,8 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@stores/*": ["./src/stores/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@constant/*": ["./src/constant/*"]
     }
   },
   "include": ["src"],

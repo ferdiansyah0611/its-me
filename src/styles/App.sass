@@ -1,7 +1,14 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
 
 .material-symbols-outlined
-	font-variation-settings:
-		'FILL' 0,
-		'wght' 400,
-		'GRAD' 0,
-		'opsz' 24
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+
+.app_container
+	@apply max-w-5xl m-auto
+
+.carousel > div:last-child > span:not(.bg-white)
+	@apply bg-gray-300
+.carousel > div:last-child > span.bg-white
+	@apply bg-gray-500

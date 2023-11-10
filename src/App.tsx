@@ -1,3 +1,4 @@
+import "./styles/App.sass";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import ProjectView from "./routes/project/ProjectView";
