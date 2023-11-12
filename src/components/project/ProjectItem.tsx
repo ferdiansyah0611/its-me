@@ -39,12 +39,14 @@ export default function ProjectItem({ data }: Props) {
 				<Typography variant="paragraph">{data.description}</Typography>
 				<div className="flex gap-2 my-4 flex-wrap">
 					{data.stack.map(stack => (
-						<img key={stack} className="hover:shadow-md p-1" src={icon[stack.toLowerCase()]} width={32} height={32} alt="icon"/>
+						<Tooltip content={stack.toUpperCase()}>
+							<img key={stack} className="hover:shadow-md p-1" src={icon[stack.toLowerCase()]} width={32} height={32} alt="icon"/>
+						</Tooltip>
 					))}
 				</div>
 				<div className="flex gap-2">
 					{(link.repository) ?
-						<Tooltip content={link.repository}>
+						<Tooltip content={link.repository} placement="bottom">
 							<Button onClick={() => window.open(link.repository)} size="sm" className="flex items-center gap-2">
 								<span className="material-symbols-outlined text-sm">attach_file</span>
 								View On Repository
@@ -53,7 +55,7 @@ export default function ProjectItem({ data }: Props) {
 						: false
 					}
 					{link.web ?
-						<Tooltip content={link.web}>
+						<Tooltip content={link.web} placement="bottom">
 							<Button onClick={() => window.open(link.web)} size="sm" color="blue" className="flex items-center gap-2">
 								<span className="material-symbols-outlined text-sm">open_in_new</span>
 								Open Project

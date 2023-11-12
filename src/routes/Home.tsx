@@ -29,16 +29,16 @@ export default function Home() {
 	return (
 		<main>
 			<Navigation />
-			<section className={"app_container " + style.one_section} style={{ minHeight: "85vh" }}>
-				<div className="flex-1">
+			<section id="home" className={"app_container " + style.one_section} style={{ minHeight: "85vh" }}>
+				<div className={style.left}>
 					<Typography variant="h2">{app.profiles.name}</Typography>
 					<Typography variant="h6">{app.profiles.role}</Typography>
 					<Typography variant="paragraph" className="mb-4">
 						Focus, Inspiration, Imagination & Problem Solving
 					</Typography>
-					<Button>Contact Me</Button>
+					<Button variant="gradient">Contact Me</Button>
 				</div>
-				<div className="flex-1">
+				<div className={style.right}>
 					<img
 						src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGdpcmwlMjBvZmZpY2V8ZW58MHx8MHx8fDA%3D"
 						alt="photo"
@@ -46,7 +46,7 @@ export default function Home() {
 					/>
 				</div>
 			</section>
-			<div className="bg-gray-100 p-2">
+			<div id="about" className="bg-gray-100 p-2">
 				<section className="app_container flex justify-center items-center min-h-screen">
 					<div>
 						<Card className="max-w-md">
@@ -73,63 +73,67 @@ export default function Home() {
 				</section>
 			</div>
 			<section className="app_container p-2 py-5">
-				<div className="flex justify-center gap-2 md:gap-10 flex-wrap">
-					<Card className="flex-1 shadow-none border border-gray-300">
-						<CardBody>
-							<Typography className="mb-2" variant="h3">Study</Typography>
-							<Timeline>
-								{app.study.map((item) => (
-									<TimelineItem>
-										<TimelineConnector />
-										<TimelineHeader>
-											<TimelineIcon className="p-2">
-												<span className="material-symbols-outlined text-sm">adjust</span>
-											</TimelineIcon>
-											<Typography variant="h6" color="blue-gray">
-												{item.name}
-											</Typography>
-										</TimelineHeader>
-										<TimelineBody className="pb-8">
-											<Typography color="gray" className="font-normal text-gray-600">
-												{item.year}
-											</Typography>
-										</TimelineBody>
-									</TimelineItem>
-								))}
-							</Timeline>
-						</CardBody>
-					</Card>
-					<Card className="flex-1 shadow-none border border-gray-300">
-						<CardBody>
-							<Typography className="mb-2" variant="h3">Experience</Typography>
-							<Timeline>
-								{app.experience.map((item) => (
-									<TimelineItem>
-										<TimelineConnector />
-										<TimelineHeader>
-											<TimelineIcon className="p-2">
-												<span className="material-symbols-outlined text-sm">adjust</span>
-											</TimelineIcon>
-											<Typography variant="h6" color="blue-gray">
-												{item.company}
-											</Typography>
-										</TimelineHeader>
-										<TimelineBody className="pb-8">
-											<Typography color="gray" className="font-normal text-gray-600">
-												{item.role}, {item.during}
-											</Typography>
-											{item.task.map((task) => (
-												<Typography variant="small" className="mt-4">- {task}</Typography>
-											))}
-										</TimelineBody>
-									</TimelineItem>
-								))}
-							</Timeline>
-						</CardBody>
-					</Card>
+				<div className={style.root_section_3}>
+					<div className="flex-1">
+						<Card id="study" className={style.card}>
+							<Typography className={style.title} variant="h3">Study</Typography>
+							<CardBody>
+								<Timeline>
+									{app.study.map((item) => (
+										<TimelineItem>
+											<TimelineConnector />
+											<TimelineHeader>
+												<TimelineIcon className="p-2">
+													<span className="material-symbols-outlined text-sm">adjust</span>
+												</TimelineIcon>
+												<Typography variant="h6" color="blue-gray">
+													{item.name}
+												</Typography>
+											</TimelineHeader>
+											<TimelineBody className="pb-8">
+												<Typography color="gray" className="font-normal text-gray-600">
+													{item.year}
+												</Typography>
+											</TimelineBody>
+										</TimelineItem>
+									))}
+								</Timeline>
+							</CardBody>
+						</Card>
+					</div>
+					<div className="flex-1">
+						<Card id="experience" className={style.card}>
+							<Typography className={style.title} variant="h3">Experience</Typography>
+							<CardBody>
+								<Timeline>
+									{app.experience.map((item) => (
+										<TimelineItem>
+											<TimelineConnector />
+											<TimelineHeader>
+												<TimelineIcon className="p-2">
+													<span className="material-symbols-outlined text-sm">adjust</span>
+												</TimelineIcon>
+												<Typography variant="h6" color="blue-gray">
+													{item.company}
+												</Typography>
+											</TimelineHeader>
+											<TimelineBody className="pb-8">
+												<Typography color="gray" className="font-normal text-gray-600">
+													{item.role}, {item.during}
+												</Typography>
+												{item.task.map((task) => (
+													<Typography variant="small" className="mt-4">- {task}</Typography>
+												))}
+											</TimelineBody>
+										</TimelineItem>
+									))}
+								</Timeline>
+							</CardBody>
+						</Card>
+					</div>
 				</div>
 			</section>
-			<section className="p-5">
+			<section id="projects" className="p-5">
 				<div className="app_container">
 					<Typography variant="h3" className="mb-4">Projects</Typography>
 				</div>

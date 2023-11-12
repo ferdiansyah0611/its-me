@@ -10,6 +10,12 @@ export default function Navigation() {
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
   }, []);
+
+  const scrollToTarget = (id) => (e) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth" });
+  }
  
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -17,51 +23,46 @@ export default function Navigation() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal flex items-center cursor-pointer"
+        onClick={scrollToTarget("about")}
       >
-        <a href="#" className="flex items-center">
-          About
-        </a>
+        About
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal flex items-center cursor-pointer"
+        onClick={scrollToTarget("study")}
       >
-        <a href="#" className="flex items-center">
-          Certificate
-        </a>
+        Study
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal flex items-center cursor-pointer"
+        onClick={scrollToTarget("experience")}
       >
-        <a href="#" className="flex items-center">
-          Study
-        </a>
+        Experience
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal flex items-center cursor-pointer"
+        onClick={scrollToTarget("projects")}
       >
-        <a href="#" className="flex items-center">
-          Experience
-        </a>
+        Projects
       </Typography>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal flex items-center cursor-pointer"
+        onClick={scrollToTarget("certificate")}
       >
-        <a href="#" className="flex items-center">
-          Projects
-        </a>
+        Certificate
       </Typography>
     </ul>
   );
@@ -82,8 +83,9 @@ export default function Navigation() {
                 variant="gradient"
                 size="sm"
                 className="hidden lg:inline-block"
+                onClick={scrollToTarget("about")}
               >
-                <span>My Contact</span>
+                <span>Contact Me</span>
               </Button>
             </div>
             <IconButton
@@ -128,8 +130,8 @@ export default function Navigation() {
         <Collapse open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>My Contact</span>
+            <Button fullWidth variant="gradient" size="sm" onClick={scrollToTarget("about")}>
+              <span>Contact Me</span>
             </Button>
           </div>
         </Collapse>

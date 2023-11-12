@@ -167,8 +167,19 @@ const useApp: UseBoundStore<StoreApi<useAppInterface>> = create((_set) => ({
 		makeStudy("SDN Jombang 4", "2009 - 2015"),
 	],
 	experience: [
-		makeExperience("Google INC", "CEO", "2018 - Now", ["Watch Movies"]),
-		makeExperience("OpenAI", "AI Engineer", "2020 - Now", ["Train Data"]),
+		makeExperience("Google INC", "CEO", "2018 - Now", [
+			"Strategic Planning",
+			"Leadership and Team Management",
+			"Financial Management",
+			"Stakeholder Management"
+		]),
+		makeExperience("OpenAI", "AI Engineer", "2020 - Now", [
+			"Data preprocessing",
+			"Model selection, development, training, evaluation",
+			"Deployment",
+			"Performance optimization",
+			"Monitoring and maintenance"
+		]),
 	],
 }));
 

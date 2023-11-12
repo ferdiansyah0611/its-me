@@ -5,6 +5,20 @@
 	border-bottom-left-radius: 150px
 	border-bottom-right-radius: 250px
 .one_section
-	@apply flex gap-2 items-center p-2
+	@apply flex gap-2 items-center p-4 md:p-2 flex-col md:flex-row
+.one_section .left, .one_section .right
+	@apply flex-1
+@media (max-width: theme("screens.md"))
+	.one_section .left
+		order: 2
+	.one_section .right
+		order: 1
 .carousel > button:not(:disabled)
 	@apply text-black dark:text-white active:bg-gray-100
+
+.root_section_3
+	@apply flex justify-center gap-2 md:gap-10 flex-col md:flex-row
+.root_section_3 .card
+	@apply shadow-none border border-gray-300
+.root_section_3 .card .title
+	@apply mb-2 px-6 py-2 border-b border-gray-300
