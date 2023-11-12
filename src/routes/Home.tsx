@@ -35,7 +35,7 @@ export default function Home() {
 					<Typography variant="h2">{app.profiles.name}</Typography>
 					<Typography variant="h6">{app.profiles.role}</Typography>
 					<Typography variant="paragraph" className="mb-4">
-						Focus, Inspiration, Imagination & Problem Solving
+						{app.profiles.shortDescription}
 					</Typography>
 					<Button variant="gradient">Contact Me</Button>
 				</div>
@@ -92,6 +92,12 @@ export default function Home() {
 												</Typography>
 											</TimelineHeader>
 											<TimelineBody className="pb-8">
+												{item.department ?
+													<Typography color="gray" className="font-normal text-gray-600">
+														{item.department}
+													</Typography>
+													: false
+												}
 												<Typography color="gray" className="font-normal text-gray-600">
 													{item.year}
 												</Typography>

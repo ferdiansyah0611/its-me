@@ -11,7 +11,7 @@ export default function Navigation() {
     );
   }, []);
 
-  const scrollToTarget = (id) => (e) => {
+  const scrollToTarget = (id: string) => (_) => {
     const el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth" });
@@ -55,24 +55,14 @@ export default function Navigation() {
       >
         Projects
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal flex items-center cursor-pointer"
-        onClick={scrollToTarget("certificate")}
-      >
-        Certificate
-      </Typography>
     </ul>
   );
 	return(
 		<Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
-            as="a"
-            href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
+            onClick={scrollToTarget("home")}
           >
             It's Me
           </Typography>

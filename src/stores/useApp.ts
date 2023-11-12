@@ -10,6 +10,7 @@ export interface projectInterface {
 export interface useAppInterface {
 	profiles: {
 		name: string;
+		shortDescription: string;
 		description: string;
 		born: string;
 		role: string;
@@ -28,13 +29,10 @@ export interface useAppInterface {
 		link: string[];
 		isPrivate?: boolean;
 	}[];
-	certificates: {
-		title: string;
-		file: string;
-	}[];
 	study: {
 		name: string;
 		year: string;
+		department?: string;
 	}[];
 	experience: {
 		company: string;
@@ -47,8 +45,9 @@ export interface useAppInterface {
 const useApp: UseBoundStore<StoreApi<useAppInterface>> = create((_set) => ({
 	profiles: {
 		name: "Ferdiansyah",
+		shortDescription: "Focus, Inspiration, Imagination & Problem Solving",
 		description:
-			"I have experience in developing a website. I have a hobby that is learning programming languages. Such as PHP, Python, and TypeScript languages. The location where I live is in South Tangerang City, Banten, Indonesia.",
+			"I possess extensive expertise in website development and possess a genuine passion for learning various programming languages, including PHP, Python, and TypeScript. I am based in the vibrant South Tangerang City, Banten, Indonesia.",
 		born: "20 September 2002",
 		role: "Frontend Developer, UI/UX Designer",
 		contacts: {
@@ -160,9 +159,9 @@ const useApp: UseBoundStore<StoreApi<useAppInterface>> = create((_set) => ({
 			["https://gitlab.com/stuckoverflow", "https://stuckoverflow-fe.vercel.app"],
 		),
 	],
-	certificates: [],
 	study: [
-		makeStudy("SMK Letris Indonesia 1 - TKJ", "2018 - 2021"),
+		makeStudy("Harvard University", "2021 - Now", "Computer Science"),
+		makeStudy("SMK Letris Indonesia 1", "2018 - 2021", "Network Engineer"),
 		makeStudy("MTs Unwaanunnajah", "2015 - 2018"),
 		makeStudy("SDN Jombang 4", "2009 - 2015"),
 	],
@@ -183,8 +182,8 @@ const useApp: UseBoundStore<StoreApi<useAppInterface>> = create((_set) => ({
 	],
 }));
 
-function makeStudy(name: string, year: string) {
-	return { name, year };
+function makeStudy(name: string, year: string, department?: string) {
+	return { name, year, department };
 }
 function makeExperience(company: string, role: string, during: string, task: string[]) {
 	return { company, role, during, task };
