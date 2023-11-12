@@ -27,9 +27,15 @@ export default function Home() {
 	useEffect(() => {
 		setProject(chunkArray(app.projects, 2));
 	}, [app.projects])
+
+	const scrollToTarget = (id: string) => () => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth" });
+  }
 	return (
 		<main>
-			<Navigation />
+			<Navigation {...{scrollToTarget}} />
 			<section id="home" className={"app_container " + style.one_section} style={{ minHeight: "85vh" }}>
 				<div className={style.left}>
 					<Typography variant="h2">{app.profiles.name}</Typography>
@@ -37,7 +43,7 @@ export default function Home() {
 					<Typography variant="paragraph" className="mb-4">
 						{app.profiles.shortDescription}
 					</Typography>
-					<Button variant="gradient">Contact Me</Button>
+					<Button variant="gradient" onClick={scrollToTarget("about")}>Contact Me</Button>
 				</div>
 				<div className={style.right}>
 					<img

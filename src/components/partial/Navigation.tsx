@@ -1,7 +1,10 @@
 import { Button, Collapse, IconButton, Navbar, Typography } from "@material-tailwind/react";
 import { useState, useEffect } from "react";
 
-export default function Navigation() {
+interface Props {
+  scrollToTarget: (id: string) => () => any;
+}
+export default function Navigation({ scrollToTarget }: Props) {
 	const [openNav, setOpenNav] = useState(false);
  
   useEffect(() => {
@@ -10,12 +13,6 @@ export default function Navigation() {
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
   }, []);
-
-  const scrollToTarget = (id: string) => () => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth" });
-  }
  
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
