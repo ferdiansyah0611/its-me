@@ -1,6 +1,6 @@
 # It's Me
 
-"It's Me" is an open-source platform specifically designed to assist individuals in creating and presenting their portfolios online. With a modern and responsive interface, the platform offers an elegant and efficient means of showcasing your identity and skills to the world.
+is an open-source platform specifically designed to assist individuals in creating and presenting their portfolios online. With a modern and responsive interface, the platform offers an elegant and efficient means of showcasing your identity and skills to the world.
 
 ## Installation
 

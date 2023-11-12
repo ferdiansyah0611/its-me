@@ -73,7 +73,7 @@ export default function Home() {
 					</div>
 				</section>
 			</div>
-			<section className="app_container p-2 py-5">
+			<section className="app_container p-5">
 				<div className={style.root_section_3}>
 					<div className="flex-1">
 						<Card id="study" className={style.card}>

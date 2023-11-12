@@ -11,7 +11,7 @@ export default function Navigation() {
     );
   }, []);
 
-  const scrollToTarget = (id: string) => (_) => {
+  const scrollToTarget = (id: string) => () => {
     const el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth" });
