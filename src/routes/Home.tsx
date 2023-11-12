@@ -7,6 +7,7 @@ import {
 	CardBody,
 	CardFooter,
 	Carousel,
+	IconButton,
 	Timeline,
 	TimelineBody,
 	TimelineConnector,
@@ -137,7 +138,57 @@ export default function Home() {
 				<div className="app_container">
 					<Typography variant="h3" className="mb-4">Projects</Typography>
 				</div>
-				<Carousel className={[style.carousel, "carousel"].join(" ")}>
+				<Carousel
+					className={[style.carousel, "carousel"].join(" ")}
+					prevArrow={({ handlePrev }) => (
+						<IconButton
+							variant="text"
+							color="white"
+							size="lg"
+							onClick={handlePrev}
+							className="!absolute bottom-0 left-4 md:top-2/4 md:-translate-y-2/4"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								strokeWidth={2}
+								stroke="currentColor"
+								className="h-6 w-6"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+								/>
+							</svg>
+						</IconButton>
+					)}
+					nextArrow={({ handleNext }) => (
+						<IconButton
+							variant="text"
+							color="white"
+							size="lg"
+							onClick={handleNext}
+							className="!absolute bottom-0 !right-4 md:top-2/4 md:-translate-y-2/4"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								strokeWidth={2}
+								stroke="currentColor"
+								className="h-6 w-6"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+								/>
+							</svg>
+						</IconButton>
+					)}
+				>
 					{project.map((item, key) => (
 						<div key={key} className="app_container pb-10">
 							<div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -155,13 +206,13 @@ export default function Home() {
 }
 
 function chunkArray(arr: any[], size: number): any[] {
-  const chunkedArray = [];
-  let index = 0;
+	const chunkedArray = [];
+	let index = 0;
 
-  while (index < arr.length) {
-    chunkedArray.push(arr.slice(index, index + size));
-    index += size;
-  }
+	while (index < arr.length) {
+		chunkedArray.push(arr.slice(index, index + size));
+		index += size;
+	}
 
-  return chunkedArray;
+	return chunkedArray;
 }

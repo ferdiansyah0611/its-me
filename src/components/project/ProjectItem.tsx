@@ -49,7 +49,7 @@ export default function ProjectItem({ data }: Props) {
 						<Tooltip content={link.repository} placement="bottom">
 							<Button onClick={() => window.open(link.repository)} size="sm" className="flex items-center gap-2">
 								<span className="material-symbols-outlined text-sm">attach_file</span>
-								View On Repository
+								Repository
 							</Button>
 						</Tooltip>
 						: false
@@ -58,7 +58,7 @@ export default function ProjectItem({ data }: Props) {
 						<Tooltip content={link.web} placement="bottom">
 							<Button onClick={() => window.open(link.web)} size="sm" color="blue" className="flex items-center gap-2">
 								<span className="material-symbols-outlined text-sm">open_in_new</span>
-								Open Project
+								Open
 							</Button>
 						</Tooltip>
 						: false
