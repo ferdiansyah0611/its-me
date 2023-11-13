@@ -137,9 +137,6 @@ export default function Home() {
             <Card
               id="study"
               className={style.card}
-              data-aos="flip-up"
-              data-aos-duration="1500"
-              data-aos-delay="100"
             >
               <Typography className={style.title} variant="h3">
                 Study
@@ -187,9 +184,6 @@ export default function Home() {
             <Card
               id="experience"
               className={style.card}
-              data-aos="flip-down"
-              data-aos-duration="1500"
-              data-aos-delay="500"
             >
               <Typography className={style.title} variant="h3">
                 Experience
