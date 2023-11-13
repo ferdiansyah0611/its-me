@@ -1,8 +1,7 @@
-
 export default function ProjectView() {
-	return(
-		<>
-			<p>ProjectView</p>
-		</>
-	)
+  return (
+    <>
+      <p>ProjectView</p>
+    </>
+  );
 }

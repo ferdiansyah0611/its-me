@@ -1,10 +1,13 @@
 import { Typography } from "@material-tailwind/react";
 
 export default function Footer() {
-	return(
+  return (
     <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 p-6 text-center md:justify-between">
       <Typography color="blue-gray" className="font-normal">
-        &copy; 2023 It's Me
+        &copy; 2023{" "}
+        <a href="https://ferdiansyah.web.app" target="_blank">
+          Ferdiansyah
+        </a>
       </Typography>
       <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
         <li>
@@ -20,5 +23,5 @@ export default function Footer() {
         </li>
       </ul>
     </footer>
-	)
+  );
 }
