@@ -38,10 +38,10 @@ export default function ProjectItem({ data }: Props) {
     setLink(commit);
   }, [data.link]);
   return (
-    <Card className="flex-1 shadow-none border border-gray-300">
+    <Card className="flex-1 shadow-none border border-gray-300 dark:border-zinc-600 dark:bg-zinc-900">
       <CardBody>
-        <Typography variant="h6">{data.title}</Typography>
-        <Typography variant="paragraph">{data.description}</Typography>
+        <Typography variant="h6" className="dark:text-white">{data.title}</Typography>
+        <Typography variant="paragraph" className="dark:text-zinc-400">{data.description}</Typography>
         <div className="flex gap-2 my-4 flex-wrap">
           {data.stack.map((stack) => (
             <Tooltip content={stack.toUpperCase()}>

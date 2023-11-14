@@ -9,6 +9,15 @@
 	@apply max-w-5xl m-auto
 
 .carousel > div:last-child > span:not(.bg-white)
-	@apply bg-gray-300
+	@apply bg-gray-300 dark:bg-zinc-800
 .carousel > div:last-child > span.bg-white
-	@apply bg-gray-500
+	@apply bg-gray-500 dark:bg-zinc-600
+
+.dark
+	body
+		@apply bg-zinc-950
+	main > nav
+		background: #09090ba8
+
+	.btn-arrow
+		@apply active:bg-zinc-900 #{!important}

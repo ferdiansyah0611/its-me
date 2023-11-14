@@ -26,7 +26,7 @@ export default function Navigation({ scrollToTarget }: Props) {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal flex items-center cursor-pointer"
+        className="p-1 font-normal flex items-center cursor-pointer dark:text-gray-200"
         onClick={scrollToTarget("about")}
       >
         About
@@ -35,7 +35,7 @@ export default function Navigation({ scrollToTarget }: Props) {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal flex items-center cursor-pointer"
+        className="p-1 font-normal flex items-center cursor-pointer dark:text-gray-200"
         onClick={scrollToTarget("study")}
       >
         Study
@@ -44,7 +44,7 @@ export default function Navigation({ scrollToTarget }: Props) {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal flex items-center cursor-pointer"
+        className="p-1 font-normal flex items-center cursor-pointer dark:text-gray-200"
         onClick={scrollToTarget("experience")}
       >
         Experience
@@ -53,7 +53,7 @@ export default function Navigation({ scrollToTarget }: Props) {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal flex items-center cursor-pointer"
+        className="p-1 font-normal flex items-center cursor-pointer dark:text-gray-200"
         onClick={scrollToTarget("projects")}
       >
         Projects
@@ -61,10 +61,10 @@ export default function Navigation({ scrollToTarget }: Props) {
     </ul>
   );
   return (
-    <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
+    <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 dark:border-0">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
-          className="mr-4 cursor-pointer py-1.5 font-medium"
+          className="mr-4 cursor-pointer py-1.5 font-medium dark:text-white"
           onClick={scrollToTarget("home")}
         >
           It's Me
@@ -91,7 +91,7 @@ export default function Navigation({ scrollToTarget }: Props) {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                className="h-6 w-6"
+                className="h-6 w-6 dark:text-white"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2}
@@ -105,7 +105,7 @@ export default function Navigation({ scrollToTarget }: Props) {
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-6 w-6 dark:text-white"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}

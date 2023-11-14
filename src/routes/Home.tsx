@@ -45,9 +45,9 @@ export default function Home() {
         style={{ minHeight: "85vh" }}
       >
         <div className={style.left}>
-          <Typography variant="h2">{app.profiles.name}</Typography>
-          <Typography variant="h6">{app.profiles.role}</Typography>
-          <Typography variant="paragraph" className="mb-4">
+          <Typography variant="h2" className="dark:text-white">{app.profiles.name}</Typography>
+          <Typography variant="h6" className="dark:text-gray-300">{app.profiles.role}</Typography>
+          <Typography variant="paragraph" className="mb-4 dark:text-gray-600">
             {app.profiles.shortDescription}
           </Typography>
           <Button variant="gradient" onClick={scrollToTarget("about")}>
@@ -62,19 +62,19 @@ export default function Home() {
           />
         </div>
       </section>
-      <div id="about" className="bg-gray-100 p-2">
+      <div id="about" className="bg-gray-100 dark:bg-zinc-900 p-5">
         <section className="app_container flex justify-center items-center min-h-screen">
           <div>
             <Card
-              className="max-w-md"
+              className="max-w-md dark:bg-zinc-950"
               data-aos="fade-up"
               data-aos-duration="3000"
             >
               <CardBody className="text-center">
-                <Typography className="mb-2" variant="h3">
+                <Typography className="mb-2 dark:text-white" variant="h3">
                   About
                 </Typography>
-                <Typography variant="paragraph">
+                <Typography variant="paragraph" className="dark:text-zinc-300">
                   {app.profiles.description}
                 </Typography>
               </CardBody>
@@ -131,102 +131,105 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <section className="app_container p-5">
-        <div className={style.root_section_3}>
-          <div className="flex-1">
-            <Card
-              id="study"
-              className={style.card}
-            >
-              <Typography className={style.title} variant="h3">
-                Study
-              </Typography>
-              <CardBody>
-                <Timeline>
-                  {app.study.map((item) => (
-                    <TimelineItem key={item.name}>
-                      <TimelineConnector />
-                      <TimelineHeader>
-                        <TimelineIcon className="p-2">
-                          <span className="material-symbols-outlined text-sm">
-                            adjust
-                          </span>
-                        </TimelineIcon>
-                        <Typography variant="h6" color="blue-gray">
-                          {item.name}
-                        </Typography>
-                      </TimelineHeader>
-                      <TimelineBody className="pb-8">
-                        {item.department ? (
-                          <Typography
-                            color="gray"
-                            className="font-normal text-gray-600"
-                          >
-                            {item.department}
-                          </Typography>
-                        ) : (
-                          false
-                        )}
-                        <Typography
-                          color="gray"
-                          className="font-normal text-gray-600"
-                        >
-                          {item.year}
-                        </Typography>
-                      </TimelineBody>
-                    </TimelineItem>
-                  ))}
-                </Timeline>
-              </CardBody>
-            </Card>
-          </div>
-          <div className="flex-1">
-            <Card
-              id="experience"
-              className={style.card}
-            >
-              <Typography className={style.title} variant="h3">
-                Experience
-              </Typography>
-              <CardBody>
-                <Timeline>
-                  {app.experience.map((item) => (
-                    <TimelineItem key={item.company}>
-                      <TimelineConnector />
-                      <TimelineHeader>
-                        <TimelineIcon className="p-2">
-                          <span className="material-symbols-outlined text-sm">
-                            adjust
-                          </span>
-                        </TimelineIcon>
-                        <Typography variant="h6" color="blue-gray">
-                          {item.company}
-                        </Typography>
-                      </TimelineHeader>
-                      <TimelineBody className="pb-8">
-                        <Typography
-                          color="gray"
-                          className="font-normal text-gray-600"
-                        >
-                          {item.role}, {item.during}
-                        </Typography>
-                        {item.task.map((task) => (
-                          <Typography variant="small" className="mt-4">
-                            - {task}
-                          </Typography>
-                        ))}
-                      </TimelineBody>
-                    </TimelineItem>
-                  ))}
-                </Timeline>
-              </CardBody>
-            </Card>
-          </div>
-        </div>
+      <section className="dark:bg-zinc-800 p-5">
+      	<div className="app_container">
+	        <div className={style.root_section_3}>
+	          <div className="flex-1">
+	            <Card
+	              id="study"
+	              className="shadow-none border border-gray-300 dark:bg-zinc-900 dark:border-gray-800"
+	            >
+	              <Typography className="mb-2 px-6 py-2 border-b border-gray-300 dark:border-gray-800 dark:text-white" variant="h3">
+	                Study
+	              </Typography>
+	              <CardBody>
+	                <Timeline>
+	                  {app.study.map((item) => (
+	                    <TimelineItem key={item.name}>
+	                      <TimelineConnector />
+	                      <TimelineHeader>
+	                        <TimelineIcon className="p-2">
+	                          <span className="material-symbols-outlined text-sm">
+	                            adjust
+	                          </span>
+	                        </TimelineIcon>
+	                        <Typography variant="h6" color="blue-gray" className="dark:text-zinc-300">
+	                          {item.name}
+	                        </Typography>
+	                      </TimelineHeader>
+	                      <TimelineBody className="pb-8">
+	                        {item.department ? (
+	                          <Typography
+	                            color="gray"
+	                            className="font-normal text-gray-600 dark:text-zinc-400"
+	                          >
+	                            {item.department}
+	                          </Typography>
+	                        ) : (
+	                          false
+	                        )}
+	                        <Typography
+	                          color="gray"
+	                          className="font-normal text-gray-600 dark:text-zinc-400"
+	                        >
+	                          {item.year}
+	                        </Typography>
+	                      </TimelineBody>
+	                    </TimelineItem>
+	                  ))}
+	                </Timeline>
+	              </CardBody>
+	            </Card>
+	          </div>
+	          <div className="flex-1">
+	            <Card
+	              id="experience"
+	              className={"shadow-none border border-gray-300 dark:bg-zinc-900 dark:border-gray-800"}
+	            >
+	              <Typography className="mb-2 px-6 py-2 border-b border-gray-300 dark:border-gray-800 dark:text-white" variant="h3">
+	                Experience
+	              </Typography>
+	              <CardBody>
+	                <Timeline>
+	                  {app.experience.map((item) => (
+	                    <TimelineItem key={item.company}>
+	                      <TimelineConnector />
+	                      <TimelineHeader>
+	                        <TimelineIcon className="p-2">
+	                          <span className="material-symbols-outlined text-sm">
+	                            adjust
+	                          </span>
+	                        </TimelineIcon>
+	                        <Typography variant="h6" color="blue-gray" className="dark:text-zinc-300">
+	                          {item.company}
+	                        </Typography>
+	                      </TimelineHeader>
+	                      <TimelineBody className="pb-8">
+	                        <Typography
+	                          color="gray"
+	                          className="font-normal text-gray-600 dark:text-zinc-300"
+	                        >
+	                          {item.role}, {item.during}
+	                        </Typography>
+	                        {item.task.map((task) => (
+	                          <Typography variant="small" className="font-normal text-gray-600 dark:text-zinc-400 mt-4">
+	                            - {task}
+	                          </Typography>
+	                        ))}
+	                      </TimelineBody>
+	                    </TimelineItem>
+	                  ))}
+	                </Timeline>
+	              </CardBody>
+	            </Card>
+	          </div>
+	        </div>
+      		
+      	</div>
       </section>
       <section id="projects" className="p-5">
         <div className="app_container">
-          <Typography variant="h3" className="mb-4">
+          <Typography variant="h3" className="mb-4 dark:text-white">
             Projects
           </Typography>
         </div>
@@ -238,7 +241,7 @@ export default function Home() {
               color="white"
               size="lg"
               onClick={handlePrev}
-              className="!absolute bottom-0 left-4 md:top-2/4 md:-translate-y-2/4"
+              className="!absolute bottom-0 left-4 md:top-2/4 md:-translate-y-2/4 btn-arrow"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +249,7 @@ export default function Home() {
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
-                className="h-6 w-6"
+                className="h-6 w-6 dark:text-white"
               >
                 <path
                   strokeLinecap="round"
@@ -262,7 +265,7 @@ export default function Home() {
               color="white"
               size="lg"
               onClick={handleNext}
-              className="!absolute bottom-0 !right-4 md:top-2/4 md:-translate-y-2/4"
+              className="!absolute bottom-0 !right-4 md:top-2/4 md:-translate-y-2/4 btn-arrow"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -270,7 +273,7 @@ export default function Home() {
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
-                className="h-6 w-6"
+                className="h-6 w-6 dark:text-white"
               >
                 <path
                   strokeLinecap="round"
@@ -282,7 +285,7 @@ export default function Home() {
           )}
         >
           {project.map((item, key) => (
-            <div key={key} className="app_container pb-10">
+            <div key={key} className="app_container pb-16">
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 {item.map((projectRow) => (
                   <ProjectItem key={projectRow.title} data={projectRow} />
