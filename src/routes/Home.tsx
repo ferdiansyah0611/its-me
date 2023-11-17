@@ -20,6 +20,7 @@ import Footer from "@/components/partial/Footer";
 import { useEffect, useState } from "react";
 import ProjectItem from "@/components/project/ProjectItem";
 import icon from "@/constant/icon";
+import Typewriter from "@/components/Typewriter";
 
 export default function Home() {
   const app = useApp();
@@ -48,7 +49,9 @@ export default function Home() {
           <Typography variant="h2" className="dark:text-white">{app.profiles.name}</Typography>
           <Typography variant="h6" className="dark:text-gray-300">{app.profiles.role}</Typography>
           <Typography variant="paragraph" className="mb-4 dark:text-gray-600">
-            {app.profiles.shortDescription}
+            <span className="typewriter">
+            	<Typewriter text={app.profiles.shortDescription}/>
+            </span>
           </Typography>
           <Button variant="gradient" onClick={scrollToTarget("about")}>
             Contact Me

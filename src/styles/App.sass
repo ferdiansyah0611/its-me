@@ -13,6 +13,25 @@
 .carousel > div:last-child > span.bg-white
 	@apply bg-gray-500 dark:bg-zinc-600
 
+@keyframes typing
+	from
+		width: 0
+	to
+		width: 100%
+
+@keyframes blink-caret
+	from, to
+		border-color: transparent
+	50%
+		border-color: #000
+ 
+.typewriter
+	overflow: hidden
+	border-right: 0.1em solid #000
+	white-space: nowrap
+	animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite
+	padding-right: 4px
+	
 .dark
 	body
 		@apply bg-zinc-950
